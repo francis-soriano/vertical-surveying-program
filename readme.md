@@ -23,6 +23,6 @@ none yet, awaiting grades/feedback
  - Peer Review (probably also Week 14, Dec 7 Wednesday)
  
  ### Links
- [General project document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198710/View)
- [Design rubric document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198712/View)
- [Implementation rubric document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198722/View)
+ - [General project document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198710/View)
+ - [Design rubric document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198712/View)
+ - [Implementation rubric document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198722/View)
