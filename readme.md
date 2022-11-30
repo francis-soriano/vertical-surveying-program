@@ -2,12 +2,26 @@
 ## PSP Group Project Section 61 / Group 2
 ### Jose Augustine (josaugus), Sam Pethick (sapethic), Francis Soriano (fsoriano), Suruchi Tolia (stolia)
 
-Last Updated: November 25, 2022.
+Last Updated: November 30, 2022.
 
 This markdown document is kept for documentation purposes as well as to provide a preface to the program being developed by the group for GEOM 67: Problem Solving and Programming at Fleming College (Fall 2022). 
 
 #### Design Document Comments from Karen:
-none yet, awaiting grades/feedback
+Requirements Comments: 
+- Output section mentions a csv and on screen but not a feature class.
+- Any other limitations than metric?
+- What "relevant error data" will be included?
+- Whtat degree of error is expected?
+
+Specification Comments:
+- Some sections are missing. The user needs to enter the starting elevation and the error information needs to be displayed.
+- Will the wording of the prompt message for crew member names change after the party chief (as they can't all be party chiefs)?
+- For the Station section, the height of instrument should not be entered by the user. Instead calculate it using the backsight to a station and the elevation of that station.  When the station is the starting Benchmark, only the elevation of the benchmark and the back sight are appropriate. For the last Station, only the foresight is appropriate. The program should then calculate the elevation using the height of instrument which the program would have calculated from the elevation of the previous station and the backsight to the previous station.
+- Will a shapefile be used or a geodatabase feature class for the traverse export? The requirements mention a feature layer in a file geodatabase.
+
+Algorithm Comments:
+- How is the arithmetic check calculated?
+- Include output to csv and feature class.
 
 #### Program Purpose:
 
