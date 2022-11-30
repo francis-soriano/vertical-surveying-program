@@ -135,11 +135,13 @@ while True:
 # Calculations
 
 PointElevationList = [] # Creates an empty list to append calculated elevation into
+InstrumentHeightList = [] # Creates an empty list to append calculated height of instrument into
 
-for index in range [0,ForesightList]:
-    Foresight = ForesightList[index]
-    Backsight = BacksightList[index]
-    Elevation, InstrumentHeight = ElevationCalculator(Backsight, Foresight, StartingElevation)
-    PointElevationList.append(Elevation)
+for index in range [0,len(ForesightList)]: # Creates an index within the range of the above inputs
+    Foresight = ForesightList[index] # retrieves the Foresight from the list for calculations 
+    Backsight = BacksightList[index] # retrives the Backsight from the list for calculations
+    Elevation, InstrumentHeight = ElevationCalculator(Backsight, Foresight, StartingElevation) # calls the elevation calculations function to return elevation and Instrument Height
+    PointElevationList.append(Elevation) # appends calculated elevation into the Point elevation list
+    InstrumentHeightList.append(InstrumentHeight) # appends calculated Instrument Height into the list
 
 # PART III: Output Options
