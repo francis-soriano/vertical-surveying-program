@@ -136,7 +136,7 @@ while True:
 
 PointElevationList = [] # Creates an empty list to append calculated elevation into
 
-for index in range [0,PointElevationList]:
+for index in range [0,ForesightList]:
     Foresight = ForesightList[index]
     Backsight = BacksightList[index]
     Elevation, InstrumentHeight = ElevationCalculator(Backsight, Foresight, StartingElevation)
