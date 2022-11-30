@@ -16,7 +16,7 @@ def ElevationCalculator(BS, FS, SElev):
     return Elev, HeightI
 
 
-
+# DO NOT TOUCH THIS SECTION ---------- FSORIANO WILL FIX
 print("""
 INSTRUCTIONS:
 
@@ -98,6 +98,8 @@ weather conditions were during the survey:
 4: Fog
 
 """)
+
+# YOU CAN TOUCH ANYTHING BELOW THIS SECTION ----- FSORIANO WILL DO PART I (METADATA COLLECTION)
 
 
 # PART II: Actual Calculator
