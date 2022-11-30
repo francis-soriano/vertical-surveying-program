@@ -6,9 +6,10 @@
 
 # --------------- PROGRAM STARTS HERE ---------------
 import math
-import arcpy
+# import arcpy REMEMBER TO UNCOMMENT LATER
 
 # Defines a function to determine elevation and height of the instrument for surverying calculations
+
 def ElevationCalculator(BS, FS, SElev):
     HeightI = SElev + BS
     Elev = HeightI - FS
@@ -108,7 +109,7 @@ ForesightList = [] # Creates an empty list for Foresight inputs
 BacksightList = [] # Creates and empty list for Backsight inputs
 Xlist = [] # Creates a list for latitude 
 Ylist = [] # Creates a list for longitude
-print("Please Enter")
+print("Please Enter the Following: ")
 
 while True:
     Foresight = float(input("The Foresight to the next station: ")) 
