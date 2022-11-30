@@ -5,6 +5,17 @@
 # Repository location (hossted by github): github.com/francis-soriano/vertical-surveying-program
 
 # --------------- PROGRAM STARTS HERE ---------------
+import math
+import arcpy
+
+# Defines a function to determine elevation and height of the instrument for surverying calculations
+def ElevationCalculator(BS, FS, SElev):
+    HeightI = SElev + BS
+    Elev = HeightI - FS
+    return Elev, HeightI
+
+
+
 print("""
 INSTRUCTIONS:
 
@@ -89,5 +100,46 @@ weather conditions were during the survey:
 
 
 # PART II: Actual Calculator
+
+# Input Section
+
+StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculatiions
+ForesightList = [] # Creates an empty list for Foresight inputs
+BacksightList = [] # Creates and empty list for Backsight inputs
+Xlist = [] # Creates a list for latitude 
+Ylist = [] # Creates a list for longitude
+print("Please Enter")
+
+while True:
+    Foresight = float(input("The Foresight to the next station: ")) 
+    ForesightList.append(Foresight) # adds the foresight to the list
+    
+    Backsight = float(input("The Backsight to the previous station: ")) 
+    BacksightList.append(Backsight)	# adds the backsight to the list
+
+    x = float(input("The Latitude of the station: ")) 
+    Xlist.append(x)	# adds the latitude to the list
+
+    y = float(input("The Longitude of the station: ")) 
+    Ylist.append(y)	# adds the longitude to the list
+
+    # determine whether user needs to input another station 
+    print()
+    end = input("Did you have another station (Y/N)? : ")
+    print()
+    if  end.upper() == 'N' :
+        break
+
+# End of Inputs
+
+# Calculations
+
+PointElevationList = [] # Creates an empty list to append calculated elevation into
+
+for index in range [0,PointElevationList]:
+    Foresight = ForesightList[index]
+    Backsight = BacksightList[index]
+    Elevation, InstrumentHeight = ElevationCalculator(Backsight, Foresight, StartingElevation)
+    PointElevationList.append(Elevation)
 
 # PART III: Output Options
