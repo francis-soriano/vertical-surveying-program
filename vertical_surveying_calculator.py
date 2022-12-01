@@ -17,6 +17,7 @@ def ElevationCalculator(BS, FS, SElev):
 
 
 # DO NOT TOUCH THIS SECTION ---------- FSORIANO WILL FIX
+
 print("""
 INSTRUCTIONS:
 
@@ -48,12 +49,35 @@ yyyy-mm-dd format)
 # chunks of code should be run in try statements. i'm a little suspicious
 # if Karen will try and break the code with erroneous entries lol
 
-metadata_date_yyyy = int(input("""Please enter the year of your traverse survey here 
-(full four numbers, i.e., 2022): """))
-metadata_date_mm = int(input("""Please enter the month of your survey traverse here 
-(numbers only, 01 for January): """))
-metadata_date_dd = int(input("""Please enter the day of your survey traverse here
-(numbers only, 01 for first day of the month): """))
+while True:
+    try:
+        metadata_date_yyyy = int(input("""Please enter the year of your traverse survey here 
+    full four numbers, i.e., 2022): """))
+    except ValueError:
+        print("You have not entered a number for the year. Please try again.")
+        continue
+    else:
+        break
+
+while True:
+    try:
+        metadata_date_mm = int(input("""Please enter the month of your survey traverse here 
+        (numbers only, 01 for January): """))
+    except ValueError:
+        print("You have not entered a number for the year. Please try again.")
+        continue
+    else:
+        break
+
+while True:
+    try:
+        metadata_date_mm = int(input("""Please enter the month of your survey traverse here
+        (numbers only, 01 for January): """))
+    except ValueError:
+        print("You have not entered a number for the year. Please try again.")
+        continue
+    else:
+        break
 
 print(""" 
 B: Crew Members (crew information will be collected 
