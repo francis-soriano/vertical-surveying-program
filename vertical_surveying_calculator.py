@@ -93,6 +93,22 @@ using first name initial, last name format)
 # | Did you want to add more crew members? (Y / N) X          |
 # -------------------------- E N D ----------------------------
 
+while True:
+    try:
+        crew_members_party_chief = str(input("Please enter the first name initial of the survey party chief here:\n"))
+    except ValueError:
+        print("You have not entered a letter for the first name initial. Please try again.")
+    else:
+        break
+
+while True:
+    try:
+        crew_members_more = str(input("Did you want to add more crew members? (Y / N)\n"))
+    except ValueError:
+        print("You need to answer 'Y' for YES and 'N' for NO. Please try again.")
+    else:
+        break
+
 print("C: Equipment")
 
 # fsoriano: part C also needs to get looped into a tuple/list.
