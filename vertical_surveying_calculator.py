@@ -7,7 +7,7 @@
 # --------------- PROGRAM STARTS HERE ---------------
 import math
 import pandas as pd  #Install pandas - pip install pandas
-# import arcpy REMEMBER TO UNCOMMENT LATER
+import arcpy
 
 # Defines a function to determine elevation and height of the instrument for surverying calculations
 
