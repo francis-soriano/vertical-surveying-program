@@ -6,6 +6,7 @@
 
 # --------------- PROGRAM STARTS HERE ---------------
 import math
+import pandas as pd  #Install pandas - pip install pandas
 # import arcpy REMEMBER TO UNCOMMENT LATER
 
 # Defines a function to determine elevation and height of the instrument for surverying calculations
@@ -199,4 +200,22 @@ for index in range(0,(len(ForesightList))): # Creates an index within the range 
     print("test")
     print(PointElevationList)
     print(InstrumentHeightList)
+
 # PART III: Output Options
+
+# Importing into a CSV File
+
+# Dictionary of lists
+Dict = {'Foresight': ForesightList, 'Backsight': BacksightList, 'Xlist': Xlist, 'Ylist': Ylist, 'Elevation': PointElevationList, 'InstrumentHeight': InstrumentHeightList } 
+
+# Displaying Dictionary of lists
+print(Dict) 
+
+#Create DataFrame
+df = pd.DataFrame(Dict) #A Pandas DataFrame is a two-dimensional data structure, similar to a two-dimensional array or a two-dimensional table with rows and columns.
+
+# Saving the dataframe to local directory
+df.to_csv(r'C:\Mee\survyng\VerticalSurveyCalculator6.csv', index=False) 
+
+new_df = pd.read_csv('VerticalSurveyCalculator6.csv') # Reading the CSV file
+print(new_df) # displaying the contents of the CSV file
