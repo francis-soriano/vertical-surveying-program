@@ -6,8 +6,8 @@
 
 # --------------- PROGRAM STARTS HERE ---------------
 import math
-import pandas as pd  #Install pandas - pip install pandas
-import arcpy
+import csv
+#import arcpy
 
 # Defines a function to determine elevation and height of the instrument for surverying calculations
 
@@ -203,19 +203,36 @@ for index in range(0,(len(ForesightList))): # Creates an index within the range 
 
 # PART III: Output Options
 
-# Importing into a CSV File
+# Exporting values to CSV file 
+# Create a function that takes in six lists of values and a file name
+def write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList, InstrumentHeightList):
 
-# Dictionary of lists
-Dict = {'Foresight': ForesightList, 'Backsight': BacksightList, 'Xlist': Xlist, 'Ylist': Ylist, 'Elevation': PointElevationList, 'InstrumentHeight': InstrumentHeightList } 
+    # Create a list of fieldnames
+    fieldnames = ['Foresight', 'Backsight', 'Xlist', 'Ylist', 'Elevation', 'InstrumentHeight']
 
-# Displaying Dictionary of lists
-print(Dict) 
+    # Open the file in write mode and create a csv writer
+    with open('file_name2.csv', 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-#Create DataFrame
-df = pd.DataFrame(Dict) #A Pandas DataFrame is a two-dimensional data structure, similar to a two-dimensional array or a two-dimensional table with rows and columns.
+        # Write the header row
+        writer.writeheader()
 
-# Saving the dataframe to local directory
-df.to_csv(r'https://github.com/francis-soriano/vertical-surveying-program.git/VerticalSurveyCalculator6.csv', index=False) 
+        # Iterate over the lists of values and write each row
+        for i in range(len(ForesightList)):
+            # Create a dictionary for the current row
+            rowdict = {
+                'Foresight': ForesightList[i],
+                'Backsight': BacksightList[i],
+                'Xlist': Xlist[i],
+                'Ylist': Ylist[i],
+                'Elevation': PointElevationList[i],
+                'InstrumentHeight': InstrumentHeightList[i],
+            }
+            # Write the row to the CSV file
+            writer.writerow(rowdict)
 
-new_df = pd.read_csv('VerticalSurveyCalculator6.csv') # Reading the CSV file
-print(new_df) # displaying the contents of the CSV file
+    # Print a message indicating that the file was written successfully
+    # Call the function to write the lists of values to a CSV file
+write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList, InstrumentHeightList)
+
+print("Data in CSV format generated.")
