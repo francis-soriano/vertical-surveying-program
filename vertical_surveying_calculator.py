@@ -143,8 +143,8 @@ weather conditions were during the survey:
 # PART II: Actual Calculator
 
 # Input Section
-UTMZone = int(input("Please enter your UTM zone: "))
-StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculatiions
+UTMZone = int(input("Please enter your UTM zone: ")) # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
+StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculations
 ForesightList = [] # Creates an empty list for Foresight inputs
 BacksightList = [] # Creates and empty list for Backsight inputs
 Xlist = [] # Creates a list for latitude 
@@ -197,8 +197,8 @@ for index in range(0,(len(ForesightList))): # Creates an index within the range 
     Elevation, InstrumentHeight = ElevationCalculator(Backsight, Foresight, StartingElevation) # calls the elevation calculations function to return elevation and Instrument Height
     PointElevationList.append(Elevation) # appends calculated elevation into the Point elevation list
     InstrumentHeightList.append(InstrumentHeight) # appends calculated Instrument Height into the list   
-    print(PointElevationList)
-    print(InstrumentHeightList)
+    print(PointElevationList) # Prints the calculated elevation values
+    print(InstrumentHeightList) # Prints the calculated Instrument height values
 
 # PART III: Output Options
 
