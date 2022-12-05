@@ -82,10 +82,6 @@ B: Crew Members (crew information will be collected
 using first name initial, last name format)
 """)
 
-# # fsoriano: need to loop into a tuple. 
-# # first tuple is last name, second tuple is first name.
-# # tbh idk, can be a list too.
-
 # # -------------- Design Document Specifications ---------------
 # # | Please enter the first name initial of the survey         |
 # # | party chief here: XXXXXXXXXXXX                            |
@@ -94,22 +90,21 @@ using first name initial, last name format)
 # # | Did you want to add more crew members? (Y / N) X          |
 # # -------------------------- E N D ----------------------------
 
-metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
-# will check if there is a specific function that data validates Y/N string entries
-# fingers crossed this if statement loops if entry is not alphabet
 while True:
-    if metadata_names_question1 == "Y":
-        metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n"))
-    elif metadata_names_question1 == "N":
-        metadata_names_person = []
-        while True:
-            metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' to go to the next question. \n"))
-            if metadata_names_person_input == "":
-                break
-            metadata_names_person.append(metadata_names_person_input)
-    elif metadata_names_question1.isalpha():
+    metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
+    if metadata_names_question1.upper() in ["Y", "N"]:
         break
     print("Sorry, your input is invalid. Please try again.")
+
+if metadata_names_question1 == "Y":
+    metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n"))
+elif metadata_names_question1 == "N":
+    metadata_names_person = []
+    while True:
+        metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question. \n"))
+        if metadata_names_person_input == "":
+            break
+            metadata_names_person.append(metadata_names_person_input)
 
 # print("C: Equipment")
 
