@@ -95,7 +95,7 @@ elif metadata_names_question1 == "N":
     metadata_names_person = []
     while True:
         metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' to go to the next question. \n"))
-        if metadata_names_person_input == ""
+        if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
 
