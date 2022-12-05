@@ -3,11 +3,13 @@
 # │ Beta Testing Date: 2022-12-06                         │ #
 # │ Alpha Release Date: 2022-12-07                        │ #
 # │ Developed By: Section 61 / Group 2                    │ #
-# │ Repository hosted on                                  │ #
+# │ Repository hosted on:                                 │ #
 # │ github.com/francis-soriano/vertical-surveying-program │ #
 # ╰───────────────────────────────────────────────────────╯ #
 
-# --------------- PROGRAM STARTS HERE ---------------
+# ╭───────────────────────────────────────────────────────╮ #
+# | PROGRAM STARTS HERE                                   | #
+# ╰───────────────────────────────────────────────────────╯ #
 
 # first, import modules needed for the program to run. 
 import math         # 'math' is needed to run trignometric calculations
@@ -28,8 +30,7 @@ INSTRUCTIONS:
 2) Then, you will be able to enter your field data values into the calculator
 3) Finally, you will have the option to export the entries and results onto a fiel (as a text csv format or other formats for GIS use)
 
-* for "yes" and "no" responses, enter "Y" for yes and
-"N" for no
+* for "yes" and "no" responses, enter "Y" for yes and "N" for no
 
 --------""")
 
@@ -39,44 +40,43 @@ INSTRUCTIONS:
 
 print("I. Metadata A. Date (date information will be collected using yyyy-mm-dd format)")
 
-while True:
+while True:         # 'while' loop for basic data validation for year entries
     try:
-        metadata_date_yyyy = int(input("Please enter the year of your traverse survey here full four numbers, i.e., 2022):\n "))
+        metadata_date_yyyy = int(input("Please enter the year of your traverse survey here full four numbers, i.e., 2022):\n\n "))
+        if len(str(metadata_date_yyyy)) == 4:
+            break
+        else:
+            print("You have not entered 4 characters for the year.")
     except ValueError:
         print("You have not entered a number for the year. Please try again.")
         continue
-    else:
-        break
 
-while True:
+while True:         # 'while' loop for basic data validation for month entries
     try:
-        metadata_date_mm = int(input("Please enter the month of your survey traverse here (numbers only, 01 for January):\n "))
+        metadata_date_mm = int(input("Please enter the month of your traverse survey here full two numbers, i.e., '01' for January):\n\n "))
+        if len(str(metadata_date_mm)) == 2:
+            break
+        else:
+            print("You have not entered 2 characters for the month. For January, enter '01'.")
     except ValueError:
         print("You have not entered a number for the month. Please try again.")
         continue
-    else:
-        break
 
-while True:
+
+while True:         # 'while' loop for basic data validation for day entries
     try:
-        metadata_date_dd = int(input("Please enter the day of your survey traverse here (numbers only, 01 for first day):\n "))
+        metadata_date_dd = int(input("Please enter the day of your traverse survey here full two numbers, i.e., '01' for the first day of the month):\n\n "))
+        if len(str(metadata_date_dd)) == 2:
+            break
+        else:
+            print("You have not entered 2 characters for the day. For the first day of the month, enter '01'.")
     except ValueError:
         print("You have not entered a number for the day. Please try again.")
         continue
-    else:
-        break
 
 print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
 
-# -------------- Design Document Specifications ---------------
-# | Please enter the first name initial of the survey         |
-# | party chief here: XXXXXXXXXXXX                            |
-# | Please enter the last name of the survey party chief      |
-# | here: XXXXXXXXXXXX                                        |
-# | Did you want to add more crew members? (Y / N) X          |
-# -------------------------- E N D ----------------------------
-
-while True:
+while True:         # 'while' loop for basic data validation Y/N entries
     metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
     if metadata_names_question1.upper() in ["Y", "N"]:
         break
@@ -91,7 +91,8 @@ elif metadata_names_question1 == "N":
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
-# --- NEED TO CHECK IF THE INPUTS ACTUALLY GOES INTO THE LIST ---
+
+
 
 print("C: Equipment")
 
