@@ -39,11 +39,7 @@ or other formats for GIS use)
 
 # # --------------- Part I: Metadata ---------------
 
-print("""I. Metadata
-
-A. Date (date information will be collected using
-yyyy-mm-dd format)
-""")
+print("I. Metadata A. Date (date information will be collected using yyyy-mm-dd format)")
 
 # # fsoriano: need to run the chunk of code below inside a try statement
 # # that would show "data validation" in our program. honestly certain
@@ -77,10 +73,7 @@ while True:
     else:
         break
 
-print(""" 
-B: Crew Members (crew information will be collected 
-using first name initial, last name format)
-""")
+print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
 
 # # -------------- Design Document Specifications ---------------
 # # | Please enter the first name initial of the survey         |
@@ -107,9 +100,6 @@ elif metadata_names_question1 == "N":
             metadata_names_person.append(metadata_names_person_input)
 
 # print("C: Equipment")
-
-# # fsoriano: part C also needs to get looped into a tuple/list.
-# # maybe we can do up a function so that we don't crowd the code? 
 
 # # -------------- Design Document Specifications ---------------
 # # | Please enter the equipment item here: XXXXXXXXXXXX        |
