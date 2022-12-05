@@ -97,15 +97,31 @@ elif metadata_names_question1 == "N":
         metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question. \n"))
         if metadata_names_person_input == "":
             break
-            metadata_names_person.append(metadata_names_person_input)
+        metadata_names_person.append(metadata_names_person_input)
+# --- NEED TO CHECK IF THE INPUTS ACTUALLY GOES INTO THE LIST ---
 
-# print("C: Equipment")
+print("C: Equipment")
 
-# # -------------- Design Document Specifications ---------------
-# # | Please enter the equipment item here: XXXXXXXXXXXX        |
-# # | Did you want to enter another equipment item? (Y / N) X   |
-# # -------------------------- E N D ----------------------------
+# -------------- Design Document Specifications ---------------
+# | Please enter the equipment item here: XXXXXXXXXXXX        |
+# | Did you want to enter another equipment item? (Y / N) X   |
+# -------------------------- E N D ----------------------------
+metadata_equipment_list = []
 
+metadata_equipment_list = str(input("Please enter the equipment item here:\n"))
+
+while True:
+    metadata_equipment_question1 = str(input("Would you like to enter another equipment item?\n"))
+    if metadata_equipment_question1.upper() in ["Y", "N"]:
+        break
+    print("Sorry, your input is invalid. Please try again.")
+
+if metadata_equipment_question1 == "Y":
+    while True:
+        metadata_equipment_input = str(input("Please enter the equipment item here:\n When done, just press 'enter' again to go to the next question\n"))
+        if metadata_equipment_input == "":
+            break
+        metadata_names_person.append(metadata_names_person_input)
 # # fsoriano: part D *also* needs to get looped into a tuple/list.
 # # plz consult design document thanks (i got too lazy to copy and
 # # paste the design document lol)
