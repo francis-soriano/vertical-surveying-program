@@ -86,9 +86,18 @@ using first name initial, last name format)
 # # first tuple is last name, second tuple is first name.
 # # tbh idk, can be a list too.
 
+# # -------------- Design Document Specifications ---------------
+# # | Please enter the first name initial of the survey         |
+# # | party chief here: XXXXXXXXXXXX                            |
+# # | Please enter the last name of the survey party chief      |
+# # | here: XXXXXXXXXXXX                                        |
+# # | Did you want to add more crew members? (Y / N) X          |
+# # -------------------------- E N D ----------------------------
+
 metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
 
 # will check if there is a specific function that data validates Y/N string entries
+
 if metadata_names_question1 == "Y":
     metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n"))
 elif metadata_names_question1 == "N":
@@ -98,30 +107,6 @@ elif metadata_names_question1 == "N":
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
-
-# # -------------- Design Document Specifications ---------------
-# # | Please enter the first name initial of the survey         |
-# # | party chief here: XXXXXXXXXXXX                            |
-# # | Please enter the last name of the survey party chief      |
-# # | here: XXXXXXXXXXXX                                        |
-# # | Did you want to add more crew members? (Y / N) X          |
-# # -------------------------- E N D ----------------------------
-
-while True:
-    try:
-       crew_members_party_chief = str(input("Please enter the first name initial of the survey party chief here:\n"))
-    except ValueError:
-       print("You have not entered a letter for the first name initial. Please try again.")
-    else:
-       break
-
-while True:
-    try:
-       crew_members_more = str(input("Did you want to add more crew members? (Y / N)\n"))
-    except ValueError:
-       print("You need to answer 'Y' for YES and 'N' for NO. Please try again.")
-    else:
-       break
 
 # print("C: Equipment")
 
