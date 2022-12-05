@@ -37,14 +37,9 @@ or other formats for GIS use)
 
 --------""")
 
-# # --------------- Part I: Metadata ---------------
+# --------------- Part I: Metadata ---------------
 
 print("I. Metadata A. Date (date information will be collected using yyyy-mm-dd format)")
-
-# # fsoriano: need to run the chunk of code below inside a try statement
-# # that would show "data validation" in our program. honestly certain
-# # chunks of code should be run in try statements. i'm a little suspicious
-# # if Karen will try and break the code with erroneous entries lol
 
 while True:
     try:
@@ -75,13 +70,13 @@ while True:
 
 print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
 
-# # -------------- Design Document Specifications ---------------
-# # | Please enter the first name initial of the survey         |
-# # | party chief here: XXXXXXXXXXXX                            |
-# # | Please enter the last name of the survey party chief      |
-# # | here: XXXXXXXXXXXX                                        |
-# # | Did you want to add more crew members? (Y / N) X          |
-# # -------------------------- E N D ----------------------------
+# -------------- Design Document Specifications ---------------
+# | Please enter the first name initial of the survey         |
+# | party chief here: XXXXXXXXXXXX                            |
+# | Please enter the last name of the survey party chief      |
+# | here: XXXXXXXXXXXX                                        |
+# | Did you want to add more crew members? (Y / N) X          |
+# -------------------------- E N D ----------------------------
 
 while True:
     metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
@@ -111,7 +106,7 @@ metadata_equipment_list = []
 metadata_equipment_list = str(input("Please enter the equipment item here:\n"))
 
 while True:
-    metadata_equipment_question1 = str(input("Would you like to enter another equipment item?\n"))
+    metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n"))
     if metadata_equipment_question1.upper() in ["Y", "N"]:
         break
     print("Sorry, your input is invalid. Please try again.")
@@ -122,8 +117,6 @@ if metadata_equipment_question1 == "Y":
         if metadata_equipment_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
-
-print("D: ")
 
 print("""D: Weather (weather is a choice option, 1 to 4 and the 
 temperature in Celsius)
@@ -136,6 +129,13 @@ weather conditions were during the survey:
 3: Precipitative event (rain/snow)
 4: Fog
 
+""")
+
+metadata_weather = int(input("Please enter the weather here:\n"))
+
+print("""
+The program is now done collecting the metadata for your survey.
+The next section of the application is the actual vertical surveying calculator.
 """)
 
 # YOU CAN TOUCH ANYTHING BELOW THIS SECTION ----- FSORIANO WILL DO PART I (METADATA COLLECTION)
