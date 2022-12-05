@@ -1,8 +1,11 @@
-# Program name: vertical-surveying-program.py
-# Date of first released version: 2022-11-XX
-# Developed by: Section 61 / Group 2
-
-# Repository location (hossted by github): github.com/francis-soriano/vertical-surveying-program
+# ╭───────────────────────────────────────────────────────╮
+# │ Program name: vertical-surveying-program.py           │
+# │ Beta Testing Date: 2022-12-06                         │
+# │ Alpha Release Date: 2022-12-07                        │
+# │ Developed By: Section 61 / Group 2                    │
+# │ Repository hosted on                                  │
+# │ github.com/francis-soriano/vertical-surveying-program │
+# ╰───────────────────────────────────────────────────────╯
 
 # --------------- PROGRAM STARTS HERE ---------------
 import math
