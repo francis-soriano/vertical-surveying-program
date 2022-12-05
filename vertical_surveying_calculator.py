@@ -80,17 +80,17 @@ while True:                         # 'while' loop for basic data validation for
 print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
 
 while True:                         # 'while' loop for basic data validation Y/N entries
-    metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
+    metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n\n"))
     if metadata_names_question1.upper() in ["Y", "N"]:
         break
     print("Sorry, your input is invalid. Please try again.")
 
 if metadata_names_question1 == "Y":
-    metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n"))
+    metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n\n"))
 elif metadata_names_question1 == "N":
     metadata_names_person = []      # list of names for the surveyors
     while True:
-        metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question. \n"))
+        metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question.\n\n"))
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
@@ -99,17 +99,17 @@ print("C: Equipment")
 
 metadata_equipment_list = []        # list of equipment items
 
-metadata_equipment_list = str(input("Please enter the equipment item here:\n"))
+metadata_equipment_list = str(input("Please enter the equipment item here:\n\n"))
 
 while True:                         # data validation for Y/N entries
-    metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n"))
+    metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n\n"))
     if metadata_equipment_question1.upper() in ["Y", "N"]:
         break
     print("Sorry, your input is invalid. Please try again.")
 
 if metadata_equipment_question1 == "Y":
     while True:
-        metadata_equipment_input = str(input("Please enter the equipment item here:\n When done, just press 'enter' again to go to the next question\n"))
+        metadata_equipment_input = str(input("Please enter the equipment item here:\n When done, just press 'enter' again to go to the next question\n\n"))
         if metadata_equipment_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
@@ -127,7 +127,7 @@ weather conditions were during the survey:
 
 """)
 
-metadata_weather = int(input("Please enter the weather here:\n"))
+metadata_weather = int(input("Please enter the weather here:\n\n"))
 
 print("""
 The program is now done collecting the metadata for your survey.
