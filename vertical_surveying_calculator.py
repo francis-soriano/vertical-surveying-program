@@ -52,7 +52,7 @@ yyyy-mm-dd format)
 
 while True:
     try:
-        metadata_date_yyyy = int(input("""Please enter the year of your traverse survey here full four numbers, i.e., 2022):\n """))
+        metadata_date_yyyy = int(input("Please enter the year of your traverse survey here full four numbers, i.e., 2022):\n "))
     except ValueError:
         print("You have not entered a number for the year. Please try again.")
         continue
@@ -61,7 +61,7 @@ while True:
 
 while True:
     try:
-        metadata_date_mm = int(input("""Please enter the month of your survey traverse here (numbers only, 01 for January):\n """))
+        metadata_date_mm = int(input("Please enter the month of your survey traverse here (numbers only, 01 for January):\n "))
     except ValueError:
         print("You have not entered a number for the month. Please try again.")
         continue
@@ -70,7 +70,7 @@ while True:
 
 while True:
     try:
-        metadata_date_dd = int(input("""Please enter the day of your survey traverse here (numbers only, 01 for first day):\n """))
+        metadata_date_dd = int(input("Please enter the day of your survey traverse here (numbers only, 01 for first day):\n "))
     except ValueError:
         print("You have not entered a number for the day. Please try again.")
         continue
@@ -85,6 +85,8 @@ using first name initial, last name format)
 # # fsoriano: need to loop into a tuple. 
 # # first tuple is last name, second tuple is first name.
 # # tbh idk, can be a list too.
+
+
 
 # # -------------- Design Document Specifications ---------------
 # # | Please enter the first name initial of the survey         |
