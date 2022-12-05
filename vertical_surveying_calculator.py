@@ -122,9 +122,8 @@ if metadata_equipment_question1 == "Y":
         if metadata_equipment_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
-# # fsoriano: part D *also* needs to get looped into a tuple/list.
-# # plz consult design document thanks (i got too lazy to copy and
-# # paste the design document lol)
+
+print("D: ")
 
 print("""D: Weather (weather is a choice option, 1 to 4 and the 
 temperature in Celsius)
