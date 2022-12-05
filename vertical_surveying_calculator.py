@@ -1,47 +1,41 @@
-# ╭───────────────────────────────────────────────────────╮
-# │ Program name: vertical-surveying-program.py           │
-# │ Beta Testing Date: 2022-12-06                         │
-# │ Alpha Release Date: 2022-12-07                        │
-# │ Developed By: Section 61 / Group 2                    │
-# │ Repository hosted on                                  │
-# │ github.com/francis-soriano/vertical-surveying-program │
-# ╰───────────────────────────────────────────────────────╯
+# ╭───────────────────────────────────────────────────────╮ #
+# │ Program name: vertical-surveying-program.py           │ #
+# │ Beta Testing Date: 2022-12-06                         │ #
+# │ Alpha Release Date: 2022-12-07                        │ #
+# │ Developed By: Section 61 / Group 2                    │ #
+# │ Repository hosted on                                  │ #
+# │ github.com/francis-soriano/vertical-surveying-program │ #
+# ╰───────────────────────────────────────────────────────╯ #
 
 # --------------- PROGRAM STARTS HERE ---------------
-import math
-import csv
-import os
-import arcpy
 
-# Defines a function to determine elevation and height of the instrument for surverying calculations
+# first, import modules needed for the program to run. 
+import math         # 'math' is needed to run trignometric calculations
+import csv          # 'csv' is needed to receive outputs as .csv file format
+import os           # 'os' is needed for getcwd (current working directory)
+import arcpy        # arcpy is used for spatial outputs to be used on ArcGIS
 
+# A function to determine elevation and height of the instrument for surverying calculations
 def ElevationCalculator(BS, FS, SElev):
     HeightI = SElev + BS
     Elev = HeightI - FS
     return Elev, HeightI
 
-
-# DO NOT TOUCH THIS SECTION ---------- FSORIANO WILL FIX
-
 print("""
 INSTRUCTIONS:
 
-1) This program will first collect some
-metadata regarding your survey
-
-2) Then, you will be able to enter your field data
-values into the calculator
-
-3) Finally, you will have the option to export the
-entries and results onto a fiel (as a text csv format
-or other formats for GIS use)
+1) This program will first collect some metadata regarding your survey
+2) Then, you will be able to enter your field data values into the calculator
+3) Finally, you will have the option to export the entries and results onto a fiel (as a text csv format or other formats for GIS use)
 
 * for "yes" and "no" responses, enter "Y" for yes and
 "N" for no
 
 --------""")
 
-# --------------- Part I: Metadata ---------------
+# ╭───────────────────────────────────────────────────────╮ #
+# | Part I. Metadata                                      | #
+# ╰───────────────────────────────────────────────────────╯ #
 
 print("I. Metadata A. Date (date information will be collected using yyyy-mm-dd format)")
 
