@@ -12,10 +12,10 @@
 # ╰───────────────────────────────────────────────────────╯ #
 
 # first, import modules needed for the program to run. 
-import math         # 'math' is needed to run trignometric calculations
-import csv          # 'csv' is needed to receive outputs as .csv file format
-import os           # 'os' is needed for getcwd (current working directory)
-import arcpy        # arcpy is used for spatial outputs to be used on ArcGIS
+import math                         # 'math' is needed to run trignometric calculations
+import csv                          # '#csv' is needed to receive outputs as .csv file format
+import os                           # 'os' is needed for getcwd (current working directory)
+import arcpy                        # arcpy is used for spatial outputs to be used on ArcGIS
 
 # A function to determine elevation and height of the instrument for surverying calculations
 def ElevationCalculator(BS, FS, SElev):
@@ -38,9 +38,12 @@ INSTRUCTIONS:
 # | Part I. Metadata                                      | #
 # ╰───────────────────────────────────────────────────────╯ #
 
-print("I. Metadata A. Date (date information will be collected using yyyy-mm-dd format)")
+print("""
+I. Metadata 
 
-while True:         # 'while' loop for basic data validation for year entries
+A. Date (date information will be collected using yyyy-mm-dd format)""")
+
+while True:                         # 'while' loop for basic data validation for year entries
     try:
         metadata_date_yyyy = int(input("Please enter the year of your traverse survey here full four numbers, i.e., 2022):\n\n "))
         if len(str(metadata_date_yyyy)) == 4:
@@ -51,7 +54,7 @@ while True:         # 'while' loop for basic data validation for year entries
         print("You have not entered a number for the year. Please try again.")
         continue
 
-while True:         # 'while' loop for basic data validation for month entries
+while True:                         # 'while' loop for basic data validation for month entries
     try:
         metadata_date_mm = int(input("Please enter the month of your traverse survey here full two numbers, i.e., '01' for January):\n\n "))
         if len(str(metadata_date_mm)) == 2:
@@ -63,7 +66,7 @@ while True:         # 'while' loop for basic data validation for month entries
         continue
 
 
-while True:         # 'while' loop for basic data validation for day entries
+while True:                         # 'while' loop for basic data validation for day entries
     try:
         metadata_date_dd = int(input("Please enter the day of your traverse survey here full two numbers, i.e., '01' for the first day of the month):\n\n "))
         if len(str(metadata_date_dd)) == 2:
@@ -76,7 +79,7 @@ while True:         # 'while' loop for basic data validation for day entries
 
 print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
 
-while True:         # 'while' loop for basic data validation Y/N entries
+while True:                         # 'while' loop for basic data validation Y/N entries
     metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n"))
     if metadata_names_question1.upper() in ["Y", "N"]:
         break
@@ -85,26 +88,20 @@ while True:         # 'while' loop for basic data validation Y/N entries
 if metadata_names_question1 == "Y":
     metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n"))
 elif metadata_names_question1 == "N":
-    metadata_names_person = []
+    metadata_names_person = []      # list of names for the surveyors
     while True:
         metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question. \n"))
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
 
-
-
 print("C: Equipment")
 
-# -------------- Design Document Specifications ---------------
-# | Please enter the equipment item here: XXXXXXXXXXXX        |
-# | Did you want to enter another equipment item? (Y / N) X   |
-# -------------------------- E N D ----------------------------
-metadata_equipment_list = []
+metadata_equipment_list = []        # list of equipment items
 
 metadata_equipment_list = str(input("Please enter the equipment item here:\n"))
 
-while True:
+while True:                         # data validation for Y/N entries
     metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n"))
     if metadata_equipment_question1.upper() in ["Y", "N"]:
         break
@@ -137,10 +134,9 @@ The program is now done collecting the metadata for your survey.
 The next section of the application is the actual vertical surveying calculator.
 """)
 
-# YOU CAN TOUCH ANYTHING BELOW THIS SECTION ----- FSORIANO WILL DO PART I (METADATA COLLECTION)
-
-
-# PART II: Actual Calculator
+# ╭───────────────────────────────────────────────────────╮ #
+# | Part II. Calculator                                   | #
+# ╰───────────────────────────────────────────────────────╯ #
 
 # Input Section
 UTMZone = int(input("Please enter your UTM zone: ")) # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
