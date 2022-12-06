@@ -209,7 +209,9 @@ for index in range(0,(len(ForesightList))): # Creates an index within the range 
     print(PointElevationList) # Prints the calculated elevation values
     print(InstrumentHeightList) # Prints the calculated Instrument height values
 
-# PART III: Output Options
+# ╭───────────────────────────────────────────────────────╮ #
+# | Part III. Output Options                              | #
+# ╰───────────────────────────────────────────────────────╯ #
 
 # Exporting values to CSV file 
 # Create a function that takes in six lists of values and a file name
@@ -245,7 +247,9 @@ csv_output = write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointEleva
 
 print("Data in CSV format generated.")
 
-#Part 4 - ArcPy
+# ╭───────────────────────────────────────────────────────╮ #
+# | Part IV. ArcPy Section                                | #
+# ╰───────────────────────────────────────────────────────╯ #
 
 workspace_location = str(input("Please enter the folder location of the workspace here:\n"))
 gdb_name = str(input("Please enter the name of a geodatabase here:\n"))
