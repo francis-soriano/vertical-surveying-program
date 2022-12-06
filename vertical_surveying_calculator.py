@@ -32,6 +32,12 @@ INSTRUCTIONS:
 
 * for "yes" and "no" responses, enter "Y" for yes and "N" for no
 
+Limitations:
+
+1) This program only works in Canada as it uses Canadian Spatial Reference System (CSRS) for its projections.
+2) This program will only work with metric measurements.
+3) This program only uses Universal Transverse Mercator (UTM), so the surveyor using this program must know the Zone and coordinates must be in UTM.
+
 --------""")
 
 # ╭───────────────────────────────────────────────────────╮ #
