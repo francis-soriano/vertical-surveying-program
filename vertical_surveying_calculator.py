@@ -240,31 +240,24 @@ print("Data in CSV format generated.")
 
 #Part 4 - ArcPy
 
-def Model():  # Model
+workspace_location = str(input("Please enter the folder location of the workspace here:\n"))
+gdb_name = str(input("Please enter the name of a geodatabase here:\n"))
+gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)
+print("The location of your geodatabase is:")
+print(gdb_current)
+print("This geodatabase will be the active environment for ArcPy.")
+csv_location = workspace_location + "\\file_name2.csv"
 
-    # To allow overwriting outputs change overwriteOutput option to True.
-    arcpy.env.overwriteOutput = True
-    workspace_location = str(input("Please enter the folder location of the workspace here:\n"))
-    concat_workspace_location = workspace_location + "\surveyingcalculator.gdb"
+fc_name = str(input("Please enter the name of the feature class here:\n"))
+concat_sr = "NAD_1983_CSRS_UTM_Zone_" + str(UTMZone) + "N"
 
-    SurveyCalculator = concat_workspace_location
+sr = arcpy.SpatialReference(concat_sr) 
 
-    locations_csv = os.getcwd() + "\\file_name2.csv"
+print(gdb_current)
 
-    print (locations_csv)
+arcpy.env.overwriteOutput = True
+arcpy.env.workspace = str(gdb_current)
 
-     # "H:\ProblemSolvingProject\groupproject\grpproj_PSP\grpproj_PSP.gdb"
+arcpy.management.XYTableToPoint(in_table=csv_location, out_feature_class=fc_name, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system=sr)
 
-    # Process: XY Table To Point (XY Table To Point) (management)
-    locations_XYTableToPoint =  SurveyCalculator + "\locations_XYTableToPoint"
-
-    with arcpy.EnvManager():
-        arcpy.management.XYTableToPoint(in_table=locations_csv, out_feature_class=locations_XYTableToPoint, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system="PROJCS[\"NAD_1983_(CSRS)_v6_UTM_Zone_17N\",GEOGCS[\"NAD83(CSRS)v6\",DATUM[\"North_American_Datum_of_1983_(CSRS)_version_6\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-81.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0]];-5120900 -9998100 10000;-100000 10000;-100000 10000;0.001;0.001;0.001;IsHighPrecision")
-
-    # Process: Table To Geodatabase (Table To Geodatabase) (conversion)
-    SurveyCalculator = arcpy.conversion.TableToGeodatabase(Input_Table=[locations_csv], Output_Geodatabase=SurveyCalculator)[0]
-
-if __name__ == '__main__':
-    # Global Environment settings
-    with arcpy.EnvManager(scratchWorkspace=r"concat_workspace_location ", workspace=r"concat_workspace_location"):
-        Model()
+print("Feature class has been created in the geodatabase you have assigned earlier. Please launch ArcGIS Pro and connect the geodatabase you have assigned earlier, or refresh the connection.")
