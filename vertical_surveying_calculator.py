@@ -99,7 +99,8 @@ print("C: Equipment")
 
 metadata_equipment_list = []        # list of equipment items
 
-metadata_equipment_list = str(input("Please enter the equipment item here:\n\n"))
+metadata_equipment_input = str(input("Please enter the equipment item here:\n\n"))
+metadata_equipment_list.append(metadata_equipment_input)
 
 while True:                         # data validation for Y/N entries
     metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n\n"))
@@ -112,7 +113,7 @@ if metadata_equipment_question1 == "Y":
         metadata_equipment_input = str(input("Please enter the equipment item here:\n When done, just press 'enter' again to go to the next question\n\n"))
         if metadata_equipment_input == "":
             break
-        metadata_names_person.append(metadata_names_person_input)
+        metadata_equipment_list.append(metadata_equipment_input)
 
 print("""D: Weather (weather is a choice option, 1 to 4 and the 
 temperature in Celsius)
