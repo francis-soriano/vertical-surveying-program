@@ -129,6 +129,10 @@ weather conditions were during the survey:
 
 metadata_weather = int(input("Please enter the weather here:\n\n"))
 
+# Output metadata as csv file
+
+### --- will fix --- ###
+
 print("""
 The program is now done collecting the metadata for your survey.
 The next section of the application is the actual vertical surveying calculator.
