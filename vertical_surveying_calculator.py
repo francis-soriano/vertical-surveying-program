@@ -139,6 +139,8 @@ The next section of the application is the actual vertical surveying calculator.
 # ╰───────────────────────────────────────────────────────╯ #
 
 # Input Section
+
+# these inputs needs to be data validated please!
 UTMZone = int(input("Please enter your UTM zone: ")) # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
 StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculations
 ForesightList = [] # Creates an empty list for Foresight inputs
@@ -228,7 +230,7 @@ def write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList,
 
     # Print a message indicating that the file was written successfully
     # Call the function to write the lists of values to a CSV file
-write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList, InstrumentHeightList)
+csv_output = write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList, InstrumentHeightList)
 
 print("Data in CSV format generated.")
 
