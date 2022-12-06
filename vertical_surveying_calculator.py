@@ -253,7 +253,7 @@ def Model():  # Model
     locations_XYTableToPoint =  SurveyCalculator + "\locations_XYTableToPoint"
 
     with arcpy.EnvManager():
-        arcpy.management.XYTableToPoint(in_table=locations_csv, out_feature_class=locations_XYTableToPoint, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system="GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]];-400 -400 1000000000;-100000 10000;-100000 10000;8.98315284119521E-09;0.001;0.001;IsHighPrecision")
+        arcpy.management.XYTableToPoint(in_table=locations_csv, out_feature_class=locations_XYTableToPoint, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system="PROJCS[\"NAD_1983_(CSRS)_v6_UTM_Zone_17N\",GEOGCS[\"NAD83(CSRS)v6\",DATUM[\"North_American_Datum_of_1983_(CSRS)_version_6\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-81.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0]];-5120900 -9998100 10000;-100000 10000;-100000 10000;0.001;0.001;0.001;IsHighPrecision")
 
     # Process: Table To Geodatabase (Table To Geodatabase) (conversion)
     SurveyCalculator = arcpy.conversion.TableToGeodatabase(Input_Table=[locations_csv], Output_Geodatabase=SurveyCalculator)[0]
