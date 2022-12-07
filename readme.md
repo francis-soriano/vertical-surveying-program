@@ -2,7 +2,7 @@
 ## PSP Group Project Section 61 / Group 2
 ### Jose Augustine (josaugus), Sam Pethick (sapethic), Francis Soriano (fsoriano), Suruchi Tolia (stolia)
 
-Last Updated: November 30, 2022.
+Last Updated: December 07, 2022.
 
 This markdown document is kept for documentation purposes as well as to provide a preface to the program being developed by the group for GEOM 67: Problem Solving and Programming at Fleming College (Fall 2022). 
 
@@ -34,7 +34,7 @@ Algorithm Comments:
 
  - ~~-Design Document (Week 11, Nov 16 Wednesday)~~ *Already submitted*
  - Implementation Document (Week 14, Dec 7 Wednesday)
- - Peer Review (probably also Week 14, Dec 7 Wednesday)
+ - Peer Review (due before final exams)
  
  ### Links
  - [General project document](https://fleming.desire2learn.com/d2l/le/content/179994/viewContent/2198710/View)
