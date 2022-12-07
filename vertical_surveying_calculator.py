@@ -63,22 +63,22 @@ while True:                         # 'while' loop for basic data validation for
 while True:                         # 'while' loop for basic data validation for month entries
     try:
         metadata_date_mm = int(input("Please enter the month of your traverse survey here full two numbers, i.e., '01' for January):\n\n "))
-        if len(str(metadata_date_mm)) == 2:
+        if 1 <= metadata_date_mm <= 12:
             break
         else:
             print("You have not entered 2 characters for the month. For January, enter '01'.")
     except ValueError:
-        print("You have not entered a number for the month. Please try again.")
+        print("You have made an erroneous entry for the month. Please try again. For January, enter '01'.")
         continue
 
 
 while True:                         # 'while' loop for basic data validation for day entries
     try:
         metadata_date_dd = int(input("Please enter the day of your traverse survey here full two numbers, i.e., '01' for the first day of the month):\n\n "))
-        if len(str(metadata_date_dd)) == 2:
+        if 1 <= metadata_date_dd <= 31:
             break
         else:
-            print("You have not entered 2 characters for the day. For the first day of the month, enter '01'.")
+            print("You have made an erroneous entry for day. For the first day of the month, enter '01'.")
     except ValueError:
         print("You have not entered a number for the day. Please try again.")
         continue
