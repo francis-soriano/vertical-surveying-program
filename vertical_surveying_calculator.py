@@ -225,6 +225,11 @@ try:
             y = float(input("The Easting of the station: ")) 
             Ylist.append(y)	# adds the longitude to the list
 
+        else:
+            x = ""
+            Xlist.append(x)
+            y = ""
+            Ylist.append(y)
         # Determine whether user needs to input another station       
         print()
         end = input("Did you have another station (Y/N)? : ")
