@@ -48,7 +48,7 @@ Limitations:
 1) This program only works in Canada as it uses Canadian Spatial Reference System (CSRS) for its projections.
 2) This program will only work with metric measurements.
 3) This program only uses Universal Transverse Mercator (UTM), so the surveyor using this program must know the Zone and coordinates must be in UTM.
-4) Turning Points and Benchmarks can be specified, but coordinates for ALL points are needed to be known.
+4) Turning Points and Benchmarks can be specified, but coordinates for ALL points are needed to be entered.
 
 --------""")
 
