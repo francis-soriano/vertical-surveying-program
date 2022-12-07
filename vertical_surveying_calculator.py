@@ -171,14 +171,14 @@ print("The program will now produce a .txt file output for the metadata.")
 metadata_txt_filename = str(input("Please enter the name of the .txt file here: \n\n"))
 print("The program will now create the .txt file output...")
 
-if metadata_names_question1 == "Y":
+if metadata_names_question1 == "Y" or metadata_names_question1 == "y":
     metadata_txt_body = f"""
     A. Date of survey: {metadata_date}
     B. Name of Survey Chief: {metadata_names_party_chief}
     C. List of Equipment: {metadata_equipment_list}
     D. Weather: {metadata_weather}
     """
-else:
+elif metadata_names_question1 == "N" or metadata_names_question1 == "n":
     metadata_txt_body = f"""
     A. Date of survey: {metadata_date}
     B. Name of Surveyor(s): {metadata_names_person}
