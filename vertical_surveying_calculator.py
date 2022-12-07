@@ -197,7 +197,7 @@ elif metadata_names_question1 == "N" or metadata_names_question1 == "n":
     C. List of Equipment: {metadata_equipment_list}
     D. Weather: {metadata_weather}
     """
-
+# for the above if-elif statements, f-strings are used to have a simpler .txt output
 metadata_txt = open (metadata_txt_filename + ".txt", "w")
 
 metadata_txt.write(metadata_txt_body)       # creating text file for metadata entries
