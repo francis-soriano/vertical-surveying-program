@@ -302,16 +302,17 @@ print("Data in CSV format generated.")
 # ╰───────────────────────────────────────────────────────╯ #
 
 # Setting the workspace
+
 workspace_location = str(input("Please enter the file path to the folder location of the workspace here example: H:\MyDocuments\ArcGIS\Projects:\n"))
 gdb_name = str(input("Please enter the desired name of your geodatabase here:\n"))
-gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)
+gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)     # creating a new file geodatabase
 print("The location of your geodatabase is:")
 print(gdb_current)
 print("This geodatabase will be the active environment for ArcPy.")
-csv_location = workspace_location + "\\file_name2.csv"
+csv_location = workspace_location + "\\file_name2.csv"         # taking saved csv from the workspace location
 
 fc_name = str(input("Please enter the name of the feature class here:\n"))
-concat_sr = "NAD_1983_CSRS_UTM_Zone_" + str(UTMZone) + "N"
+concat_sr = "NAD_1983_CSRS_UTM_Zone_" + str(UTMZone) + "N"         # specifying the coordinate system 
 
 sr = arcpy.SpatialReference(concat_sr) 
 
@@ -320,6 +321,6 @@ print(gdb_current)
 arcpy.env.overwriteOutput = True
 arcpy.env.workspace = str(gdb_current)
 
-arcpy.management.XYTableToPoint(in_table=csv_location, out_feature_class=fc_name, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system=sr)
+arcpy.management.XYTableToPoint(in_table=csv_location, out_feature_class=fc_name, x_field="Xlist", y_field="Ylist", z_field="", coordinate_system=sr)     # converting xy table to point using the geoprocessing tools 
 
 print("Feature class has been created in the geodatabase you have assigned earlier. Please launch ArcGIS Pro and connect the geodatabase you have assigned earlier, or refresh the connection.")
