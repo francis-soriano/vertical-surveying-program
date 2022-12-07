@@ -226,9 +226,9 @@ try:
             Ylist.append(y)	# adds the longitude to the list
 
         else:
-            x = ""
+            x = "<Null>"
             Xlist.append(x)
-            y = ""
+            y = "<Null>"
             Ylist.append(y)
         # Determine whether user needs to input another station       
         print()
