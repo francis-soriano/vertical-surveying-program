@@ -301,6 +301,7 @@ print("Data in CSV format generated.")
 # | Part IV. ArcPy Section                                | #
 # ╰───────────────────────────────────────────────────────╯ #
 
+# Setting the workspace
 workspace_location = str(input("Please enter the file path to the folder location of the workspace here example: H:\MyDocuments\ArcGIS\Projects:\n"))
 gdb_name = str(input("Please enter the desired name of your geodatabase here:\n"))
 gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)
