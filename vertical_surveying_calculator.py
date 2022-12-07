@@ -161,9 +161,9 @@ elif metadata_weather == "4":
 
 print("For the metadata you have entered:")
 print("Date of survey:" + str(metadata_date))
-if metadata_names_question1 == "Y":
+if metadata_names_question1 == "Y" or metadata_names_question1 == "y":
     print("Because you opted to name a survey chief, the program only collected their name. Their name is: " + metadata_names_party_chief)
-else:
+elif metadata_names_question1 == "N" or metadata_names_question1 == "n":
     print("The names you have entered for the survey party are the following: " + str(metadata_names_person))
 print("For the equipment, you have entered: " + str(metadata_equipment_list))
 print("For the weather, you have entered: " + metadata_weather)
