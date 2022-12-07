@@ -88,7 +88,7 @@ metadata_date = str(metadata_date_yyyy) + "-" + str(metadata_date_mm) + "-" + st
 print("B: Crew Members (crew information will be collected using first name [space] last name format)")
 
 while True:                         # 'while' loop for basic data validation Y/N entries
-    metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n\n"))
+    metadata_names_question1 = str(input("Would you like to enter the name of a party chief?  Enter 'Y' for yes and 'N' for no.\n\n"))
     if metadata_names_question1 in ["Y", "N", "y", "n"]:
         break
     print("Sorry, your input is invalid. Please try again.")
