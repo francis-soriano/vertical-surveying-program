@@ -83,20 +83,22 @@ while True:                         # 'while' loop for basic data validation for
         print("You have not entered a number for the day. Please try again.")
         continue
 
-print(" B: Crew Members (crew information will be collected using first name initial, last name format)")
+metadata_date = str(metadata_date_yyyy) + "-" + str(metadata_date_mm) + "-" + str(metadata_date_dd)
+
+print("B: Crew Members (crew information will be collected using first name [space] last name format)")
 
 while True:                         # 'while' loop for basic data validation Y/N entries
     metadata_names_question1 = str(input("Would you like to enter the name of a party chief?\n\n"))
-    if metadata_names_question1.upper() in ["Y", "N"]:
+    if metadata_names_question1 in ["Y", "N", "y", "n"]:
         break
     print("Sorry, your input is invalid. Please try again.")
 
-if metadata_names_question1 == "Y":
+if metadata_names_question1 == "Y" or metadata_names_question1 == "y":
     metadata_names_party_chief = str(input("Please enter the name of the survey party chief here:\n\n"))
-elif metadata_names_question1 == "N":
+elif metadata_names_question1 == "N" or metadata_names_question1 == "n":
     metadata_names_person = []      # list of names for the surveyors
     while True:
-        metadata_names_person_input = str(input("Please enter the name of the survey members here:(first name, last name format)\n When done, just press 'enter' again to go to the next question.\n\n"))
+        metadata_names_person_input = str(input("Please enter the name of the survey members here:(first name [space] last name format)\n When done, just press 'enter' again to go to the next question.\n\n"))
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
@@ -110,11 +112,11 @@ metadata_equipment_list.append(metadata_equipment_input)
 
 while True:                         # data validation for Y/N entries
     metadata_equipment_question1 = str(input("Would you like to enter another equipment item? (Y / N)\n\n"))
-    if metadata_equipment_question1.upper() in ["Y", "N"]:
+    if metadata_equipment_question1.upper() in ["Y", "N", "y", "n"]:
         break
     print("Sorry, your input is invalid. Please try again.")
 
-if metadata_equipment_question1 == "Y":
+if metadata_equipment_question1 == "Y" or metadata_equipment_question1 == "y":
     while True:
         metadata_equipment_input = str(input("Please enter the equipment item here:\n When done, just press 'enter' again to go to the next question\n\n"))
         if metadata_equipment_input == "":
@@ -134,8 +136,8 @@ weather conditions were during the survey:
 
 """)
 
-while True:
-    metadata_weather = int(input("Please enter the weather here:\n\n"))
+while True:                         # data validation for weather entries, had to set as 'str' rather than 'int' due to list condition below
+    metadata_weather = str(input("Please enter the weather here:\n\n"))
     if metadata_weather in ["1","2","3","4"]:
         break
     else:
@@ -145,11 +147,48 @@ while True:
         1: Sunny/Clear
         2: Cloudy
         3: Precipitative event (rain/snow)
+        4: Fog
+        Enter only the number that corresponds to the weather.
         """)
+if metadata_weather == "1":         # if statements needed for output
+    metadata_weather = "Sunny/Clear"
+elif metadata_weather == "2":
+    metadata_weather = "Cloudy"
+elif metadata_weather == "3":
+    meatadata_weather = "Precipitative event (rain/snow)"
+elif metadata_weather == "4":
+    metadata_weather = "Fog"
 
-# Output metadata as csv file, a txt file may be more appropriate given the nature of the data.
+print("For the metadata you have entered:")
+print("Date of survey:" + str(metadata_date))
+if metadata_names_question1 == "Y":
+    print("Because you opted to name a survey chief, the program only collected their name. Their name is: " + metadata_names_party_chief)
+else:
+    print("The names you have entered for the survey party are the following: " + str(metadata_names_person))
+print("For the equipment, you have entered: " + str(metadata_equipment_list))
+print("For the weather, you have entered: " + metadata_weather)
+print("The program will now produce a .txt file output for the metadata.")
+metadata_txt_filename = str(input("Please enter the name of the .txt file here: \n\n"))
+print("The program will now create the .txt file output...")
 
-### --- will fix --- ###
+if metadata_names_question1 == "Y":
+    metadata_txt_body = f"""
+    A. Date of survey: {metadata_date}
+    B. Name of Survey Chief: {metadata_names_party_chief}
+    C. List of Equipment: {metadata_equipment_list}
+    D. Weather: {metadata_weather}
+    """
+else:
+    metadata_txt_body = f"""
+    A. Date of survey: {metadata_date}
+    B. Name of Surveyor(s): {metadata_names_person}
+    C. List of Equipment: {metadata_equipment_list}
+    D. Weather: {metadata_weather}
+    """
+
+metadata_txt = open (metadata_txt_filename + ".txt", "w")
+
+metadata_txt.write(metadata_txt_body)
 
 print("""
 The program is now done collecting the metadata for your survey.
