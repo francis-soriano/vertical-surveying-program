@@ -96,7 +96,7 @@ if metadata_names_question1 == "Y":
 elif metadata_names_question1 == "N":
     metadata_names_person = []      # list of names for the surveyors
     while True:
-        metadata_names_person_input = str(input("Please enter the name of the survey members here: (first name, last name format)\n When done, just press 'enter' again to go to the next question.\n\n"))
+        metadata_names_person_input = str(input("Please enter the name of the survey members here:(first name, last name format)\n When done, just press 'enter' again to go to the next question.\n\n"))
         if metadata_names_person_input == "":
             break
         metadata_names_person.append(metadata_names_person_input)
@@ -105,7 +105,7 @@ print("C: Equipment")
 
 metadata_equipment_list = []        # list of equipment items
 
-metadata_equipment_input = str(input("Please enter the equipment item here:\n\n"))
+metadata_equipment_input = str(input("Please enter the equipment item here: \n\n"))
 metadata_equipment_list.append(metadata_equipment_input)
 
 while True:                         # data validation for Y/N entries
@@ -136,7 +136,7 @@ weather conditions were during the survey:
 
 metadata_weather = int(input("Please enter the weather here:\n\n"))
 
-# Output metadata as csv file
+# Output metadata as csv file, a txt file may be more appropriate given the nature of the data.
 
 ### --- will fix --- ###
 
@@ -151,7 +151,7 @@ The next section of the application is the actual vertical surveying calculator.
 
 # Input Section
 
-# these inputs needs to be data validated please!
+
 UTMZone = int(input("Please enter your UTM zone: ")) # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
 StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculations
 ForesightList = [] # Creates an empty list for Foresight inputs
@@ -160,7 +160,7 @@ Xlist = [] # Creates a list for latitude
 Ylist = [] # Creates a list for longitude
 print("Please Enter the Following: ")
 
-while True:
+while True: # While Loop goes until the user specifies a break, allowing for traverses of all sizes.
     Foresight = float(input("The Foresight to the next station (If first station leave as 0): ")) 
     ForesightList.append(Foresight) # adds the foresight to the list
     
@@ -173,15 +173,15 @@ while True:
     y = float(input("The Easting of the station: ")) 
     Ylist.append(y)	# adds the longitude to the list
 
-    # determine whether user needs to input another station 
+    # Determine whether user needs to input another station 
     print()
     end = input("Did you have another station (Y/N)? : ")
     print()
-    if  end.upper() == 'N' : #Should make it so that lower case n inputs also work
+    if  end.upper() == 'N' : # Should make it so that lower case n inputs also work
         break
     else:
         try: 
-            StationClass = str(input("The Station is a Benchmark rather than a Turning Point? (Y/N): ")) #Turning points in test values don't have coordinate points, in such cases they will be hidden for intermittent calculations.
+            StationClass = str(input("The Station is a Benchmark rather than a Turning Point? (Y/N): ")) #Turning points in test values don't necessarily have coordinate points, in such cases they will be hidden for intermittent calculations.
             if StationClass.upper == "Y": # Makes lower case y inputs work
                 x = float(input("The Northing of the station: ")) 
                 Xlist.append(x)	# adds the latitude to the list
@@ -191,7 +191,7 @@ while True:
             else: 
                 print("Coordinates not required for a Turning Point. ")
         except ValueError:
-            print("Please Enter an approrpriate Value, Y or N for the Station Class, and a number for Latitude and Longitude. ") # Should refrain from causing a program crash when inputs are mismatched.
+            print("Please Enter an approrpriate Value, Y or N for the Station Class, and a number for Latitude and Longitude. ") # Should refrain from causing a program crash when inputs are mismatched from their data type.
                     
 # End of Inputs
 
@@ -251,8 +251,8 @@ print("Data in CSV format generated.")
 # | Part IV. ArcPy Section                                | #
 # ╰───────────────────────────────────────────────────────╯ #
 
-workspace_location = str(input("Please enter the folder location of the workspace here:\n"))
-gdb_name = str(input("Please enter the name of a geodatabase here:\n"))
+workspace_location = str(input("Please enter the file path to the folder location of the workspace here example: H:\MyDocuments\ArcGIS\Projects:\n"))
+gdb_name = str(input("Please enter the desired name of your geodatabase here:\n"))
 gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)
 print("The location of your geodatabase is:")
 print(gdb_current)
