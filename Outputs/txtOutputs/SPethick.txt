@@ -1,0 +1,6 @@
+
+    A. Date of survey: 2022-11-1
+    B. Name of Survey Chief: Samuel Pethick
+    C. List of Equipment: ['Stadia Rod', 'Levelling Station', 'Tripod Legs', 'GNSS Device']
+    D. Weather: Sunny/Clear
+    
