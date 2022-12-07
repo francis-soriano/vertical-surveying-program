@@ -201,8 +201,6 @@ The next section of the application is the actual vertical surveying calculator.
 
 # Input Section
 
-
-UTMZone = int(input("Please enter your UTM zone: ")) # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
 StartingElevation = float(input("Pleaes enter the Starting Elevation of the Survey: ")) # Creates Starting eleveation as a reference for subsequent calculations
 ForesightList = [] # Creates an empty list for Foresight inputs
 BacksightList = [] # Creates and empty list for Backsight inputs
@@ -271,7 +269,7 @@ def write_to_csv(ForesightList, BacksightList, Xlist, Ylist, PointElevationList,
     fieldnames = ['Foresight', 'Backsight', 'Xlist', 'Ylist', 'Elevation', 'InstrumentHeight']
 
     # Open the file in write mode and create a csv writer
-    with open('file_name2.csv', 'w') as csvfile:
+    with open('vertical_survey_calculations.csv', 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         # Write the header row
@@ -303,13 +301,28 @@ print("Data in CSV format generated.")
 
 # Setting the workspace
 
-workspace_location = str(input("Please enter the file path to the folder location of the workspace here example: H:\MyDocuments\ArcGIS\Projects:\n"))
-gdb_name = str(input("Please enter the desired name of your geodatabase here:\n"))
-gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)     # creating a new file geodatabase
+UTMZone = int(input("Please enter your UTM zone: "))  # Gathers the UTM Zone which will later be used to project the data in ArcPy, important given our latitude and longitude from our test values are in UTM
+workspace_location = str(input("Please enter the file path to the folder location of the workspace here, for example: H:\MyDocuments\ArcGIS\Projects:\n"))
+while True:
+    gdb_new_question = str(input("Do you have a geodatabase already? (Y / N)\n"))
+    if gdb_new_question in ["Y", "N", "y", "n"]:
+        break
+    print("Sorry, your input is invalid. Please try again.")
+
+if gdb_new_question == "Y" or gdb_new_question == "y":
+    gdb_name = str(input("Please set the name of your geodatabase here, without the '.gdb' extension here: \n"))
+    gdb_current = str(workspace_location) + "\\" + str(gdb_name) + ".gdb\\"
+elif gdb_new_question == "N" or gdb_new_question == "n":
+    gdb_name = str(input("Please enter the desired name of your geodatabase here:\n"))
+    gdb_current = arcpy.CreateFileGDB_management(workspace_location, gdb_name)
+
+
+
+# creating a new file geodatabase
 print("The location of your geodatabase is:")
 print(gdb_current)
 print("This geodatabase will be the active environment for ArcPy.")
-csv_location = workspace_location + "\\file_name2.csv"         # taking saved csv from the workspace location
+csv_location = workspace_location + "\\vertical_survey_calculations.csv"         # taking saved csv from the workspace location
 
 fc_name = str(input("Please enter the name of the feature class here:\n"))
 concat_sr = "NAD_1983_CSRS_UTM_Zone_" + str(UTMZone) + "N"         # specifying the coordinate system 
