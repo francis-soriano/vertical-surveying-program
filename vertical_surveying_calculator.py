@@ -134,7 +134,18 @@ weather conditions were during the survey:
 
 """)
 
-metadata_weather = int(input("Please enter the weather here:\n\n"))
+while True:
+    metadata_weather = int(input("Please enter the weather here:\n\n"))
+    if metadata_weather in ["1","2","3","4"]:
+        break
+    else:
+        print("Sorry, that is not a valid number. Please try again.")
+        print("""
+        From the following choices, please enter what the weather conditions were during the survey:
+        1: Sunny/Clear
+        2: Cloudy
+        3: Precipitative event (rain/snow)
+        """)
 
 # Output metadata as csv file, a txt file may be more appropriate given the nature of the data.
 
